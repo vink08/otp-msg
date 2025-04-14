@@ -248,6 +248,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -263,7 +264,22 @@ const nexmo = new Nexmo({
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'client/dist'))); // Note: Vite builds to 'dist' not 'build'
+
+// Check if client/dist directory exists before serving static files
+const clientDistPath = path.join(__dirname, 'client/dist');
+if (fs.existsSync(clientDistPath)) {
+  console.log('Serving static files from client/dist directory');
+  app.use(express.static(clientDistPath));
+} else {
+  console.log('Warning: client/dist directory not found. Static files will not be served.');
+  // Create a simple API-only response for the root path
+  app.get('/', (req, res) => {
+    res.json({ 
+      message: 'API is running. Client application is not built yet.',
+      status: 'API-only mode'
+    });
+  });
+}
 
 // In-memory data store
 let contacts = [
@@ -481,9 +497,16 @@ app.post('/api/verify-otp', async (req, res) => {
   }
 });
 
-// Fallback route for SPA
+// Fallback route for SPA - only if client/dist exists
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
+  if (fs.existsSync(clientDistPath)) {
+    res.sendFile(path.join(clientDistPath, 'index.html'));
+  } else {
+    res.status(404).json({ 
+      error: 'Not found',
+      message: 'The requested resource was not found. API is running in API-only mode.'
+    });
+  }
 });
   
 // Start server
