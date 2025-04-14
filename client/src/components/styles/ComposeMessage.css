@@ -1,0 +1,83 @@
+.compose-container {
+  padding: 20px;
+}
+
+.compose-container h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.recipient-info {
+  margin-bottom: 20px;
+  color: #7f8c8d;
+  font-size: 16px;
+}
+
+.message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #34495e;
+}
+
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #e1e4e8;
+  border-radius: 5px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.form-hint {
+  font-size: 14px;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.send-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  align-self: flex-start;
+}
+
+.send-button:hover {
+  background-color: #2980b9;
+}
+
+.send-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  padding: 10px;
+  background-color: #fadbd8;
+  color: #c0392b;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.success-message {
+  padding: 10px;
+  background-color: #d4efdf;
+  color: #27ae60;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}

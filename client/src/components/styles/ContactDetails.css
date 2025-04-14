@@ -1,0 +1,74 @@
+.contact-details-container {
+    padding: 20px;
+  }
+  
+  .contact-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .contact-avatar-large {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .contact-profile h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+  
+  .contact-info-details {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .info-item {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }
+  
+  .label {
+    font-weight: bold;
+    width: 80px;
+    color: #7f8c8d;
+  }
+  
+  .value {
+    flex-grow: 1;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .send-message-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .send-message-btn:hover {
+    background-color: #2980b9;
+  }
